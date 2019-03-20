@@ -6,7 +6,7 @@ import TeamPage from "./components/teamPage";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/nhl">
       <div>
         <TeamsProvider>
           <NavBar />

@@ -19,14 +19,16 @@ class TeamPage extends React.Component {
     return (
       <div>
         <h1>
-          <img
-            src={`https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/${
-              team.id
-            }.svg`}
-            width="60"
-            height="60"
-            alt=""
-          />
+          {team.id && (
+            <img
+              src={`https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/${
+                team.id
+              }.svg`}
+              width="60"
+              height="60"
+              alt=""
+            />
+          )}
           {team.name}
         </h1>
         <Roster id={team.id} />
