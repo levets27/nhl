@@ -14,7 +14,7 @@ function App() {
       <div>
         <TeamsProvider>
           <NavBar />
-          <Route path={`/teams/:teamId`} component={TeamPage} />
+          <Route path={`/teams/:abbr`} component={TeamPage} />
         </TeamsProvider>
         <Route exact path="/" component={Schedule} />
       </div>

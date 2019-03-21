@@ -8,9 +8,9 @@ class TeamsList extends React.Component {
       <TeamsConsumer>
         {({ teams }) => (
           <ul className="TeamsList">
-            {teams.map(({ name, id }) => (
+            {teams.map(({ name, id, abbreviation }) => (
               <li key={id}>
-                <Link to={`/teams/${id}`}>{name}</Link>
+                <Link to={`/teams/${abbreviation}`}>{name}</Link>
               </li>
             ))}
           </ul>

@@ -7,7 +7,7 @@ class TeamsProvider extends React.Component {
     teams: []
   };
   componentDidMount() {
-    fetch(`https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster`)
+    fetch(`https://statsapi.web.nhl.com/api/v1/teams`)
       .then(results => {
         return results.json();
       })
