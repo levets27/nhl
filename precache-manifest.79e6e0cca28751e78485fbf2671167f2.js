@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/nhl/static/js/runtime~main.1a4d0025.js"
   },
   {
-    "revision": "bb6f1f3e0a498abb8839",
-    "url": "/nhl/static/js/main.7739741e.chunk.js"
+    "revision": "18e02fbda66ec73a601b",
+    "url": "/nhl/static/js/main.0361a56a.chunk.js"
   },
   {
     "revision": "cba1f6e39bd3695b0b68",
     "url": "/nhl/static/js/2.8b6876ca.chunk.js"
   },
   {
-    "revision": "bb6f1f3e0a498abb8839",
+    "revision": "18e02fbda66ec73a601b",
     "url": "/nhl/static/css/main.27539486.chunk.css"
   },
   {
-    "revision": "4e2ed2a3fb7006c3cd4f9fb4faf9174d",
+    "revision": "8f7b229a2be7b4f4507494c30fd551c1",
     "url": "/nhl/index.html"
   }
 ];
