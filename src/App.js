@@ -5,8 +5,12 @@ import NavBar from "./layout/navBar";
 import TeamPage from "./components/teamPage";
 
 function App() {
+  let basePath = "";
+  if (process.env.NODE_ENV === "production") {
+    basePath = "/nhl";
+  }
   return (
-    <Router basename="/nhl">
+    <Router basename={basePath}>
       <div>
         <TeamsProvider>
           <NavBar />

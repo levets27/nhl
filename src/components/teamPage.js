@@ -4,26 +4,40 @@ import Roster from "./roster";
 
 class TeamPage extends React.Component {
   state = {
+    id: null,
     team: []
   };
+  componentDidMount() {
+    this.updateId();
+  }
   componentDidUpdate() {
-    const newTeam = this.context.teams.find(
-      ({ id }) => id === parseInt(this.props.match.params.teamId)
-    );
-    if (newTeam.id !== this.state.team.id) {
-      this.setState({ team: newTeam });
+    if (this.context.teams.length > 0) {
+      this.updateTeam();
     }
   }
+  updateTeam = () => {
+    let newTeamId = Number(this.props.match.params.teamId);
+    if (this.state.team && this.state.team.id !== newTeamId) {
+      let newTeam = this.context.teams.find(
+        ({ id }) => id === parseInt(newTeamId)
+      );
+      this.setState({ team: newTeam });
+    }
+  };
+  updateId = () => {
+    let newTeamId = this.props.match.params.teamId;
+    if (this.state.id === null || this.state.id !== newTeamId) {
+      this.setState({ id: newTeamId });
+    }
+  };
   render() {
-    const { team } = this.state;
+    const { id, team } = this.state;
     return (
       <div>
         <h1>
-          {team.id && (
+          {id && (
             <img
-              src={`https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/${
-                team.id
-              }.svg`}
+              src={`https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/${id}.svg`}
               width="60"
               height="60"
               alt=""
