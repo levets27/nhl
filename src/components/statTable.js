@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import StatTableRow from "./statTableRow";
 
 class StatTable extends React.Component {
@@ -25,6 +26,7 @@ class StatTable extends React.Component {
       this.fetchData();
     }
   }
+
   updateId = () => {
     this.setState({ id: this.props.id });
     console.log(this.state.id);
@@ -149,5 +151,17 @@ class StatTable extends React.Component {
     );
   }
 }
+
+StatTable.propTypes = {
+  sortKey: PropTypes.string,
+  apiQuery: PropTypes.string.isRequired,
+  isGoalie: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  statCategories: PropTypes.array.isRequired
+};
+StatTable.defaultProps = {
+  sortKey: "points",
+  isGoalie: false
+};
 
 export default StatTable;
