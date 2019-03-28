@@ -1,6 +1,6 @@
 import React from "react";
 import { TeamsContext } from "../context/teamsContext";
-import StatTable from "./statTable";
+import StatTableContainer from "./statTableContainer";
 
 class TeamPage extends React.Component {
   state = {
@@ -34,6 +34,23 @@ class TeamPage extends React.Component {
     }
   };
   render() {
+    const skaterStatCategories = {
+      games: "GP",
+      goals: "G",
+      assists: "A",
+      points: "PTS",
+      pim: "PIM"
+    };
+    const goalieStatCategories = {
+      games: "GP",
+      gamesStarted: "GS",
+      wins: "W",
+      losses: "L",
+      ot: "OTL",
+      goalAgainstAverage: "GAA",
+      savePercentage: "SV%",
+      shutouts: "SO"
+    };
     return (
       <div>
         {this.state.id && (
@@ -51,25 +68,19 @@ class TeamPage extends React.Component {
             </h1>
             <section>
               <h2>Skater Stats</h2>
-              <StatTable
+              <StatTableContainer
                 id={this.state.id}
                 name={`teamSkaterStats-${this.state.abbr}`}
                 apiQuery={`https://statsapi.web.nhl.com/api/v1/teams/${
                   this.state.id
                 }?hydrate=franchise(roster(season=20182019,person(name,stats(splits=statsSingleSeason))))`}
                 sortKey="points"
-                statCategories={{
-                  games: "GP",
-                  goals: "G",
-                  assists: "A",
-                  points: "PTS",
-                  pim: "PIM"
-                }}
+                statCategories={skaterStatCategories}
               />
             </section>
             <section>
               <h2>Goalie Stats</h2>
-              <StatTable
+              <StatTableContainer
                 id={this.state.id}
                 name={`teamGoalieStats-${this.state.abbr}`}
                 apiQuery={`https://statsapi.web.nhl.com/api/v1/teams/${
@@ -77,16 +88,7 @@ class TeamPage extends React.Component {
                 }?hydrate=franchise(roster(season=20182019,person(name,stats(splits=statsSingleSeason))))`}
                 isGoalie
                 sortKey="goalAgainstAverage"
-                statCategories={{
-                  games: "GP",
-                  gamesStarted: "GS",
-                  wins: "W",
-                  losses: "L",
-                  ot: "OTL",
-                  goalAgainstAverage: "GAA",
-                  savePercentage: "SV%",
-                  shutouts: "SO"
-                }}
+                statCategories={goalieStatCategories}
               />
             </section>
           </React.Fragment>

@@ -1,3 +1,4 @@
+// todo - probably delete this entire thing
 export const fetchData = apiUrl => {
   return fetch(apiUrl).then(results => {
     return results.json();

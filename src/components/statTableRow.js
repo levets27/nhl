@@ -2,7 +2,7 @@ import React from "react";
 // import placeholder from "../images/person-placeholder-sm.png";
 
 const StatTableRow = props => {
-  const { player, imageSize } = props;
+  const { player } = props;
   return (
     <tr>
       {Object.entries(player).map((playerData, i) => {
@@ -12,9 +12,7 @@ const StatTableRow = props => {
         if (key === "id") {
           // todo - add placeholder behind each image, then layer this on top
           let imagePath = `https://nhl.bamcontent.com/images/headshots/current/60x60/${value}.jpg`;
-          content = (
-            <img src={imagePath} alt="" height={imageSize} width={imageSize} />
-          );
+          content = <img src={imagePath} alt="" height={40} width={40} />;
         } else {
           content = value;
         }
@@ -25,8 +23,7 @@ const StatTableRow = props => {
 };
 
 StatTableRow.defaultProps = {
-  player: {},
-  imageSize: 40
+  player: {}
 };
 
 export default StatTableRow;
