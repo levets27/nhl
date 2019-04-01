@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import StatTableRow from "./statTableRow";
 
-const StatTable = ({ name, playerData, statCategories, handleHeaderClick }) => {
+const StatTable = ({ handleHeaderClick, id, playerData, statCategories }) => {
   return (
-    <table id={name}>
+    <table id={id}>
       <thead>
         <tr>
           <th />
@@ -37,10 +37,10 @@ const StatTable = ({ name, playerData, statCategories, handleHeaderClick }) => {
 };
 
 StatTable.propTypes = {
+  handleHeaderClick: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
   playerData: PropTypes.array.isRequired,
-  name: PropTypes.string.isRequired,
-  statCategories: PropTypes.object.isRequired,
-  handleHeaderClick: PropTypes.func.isRequired
+  statCategories: PropTypes.object.isRequired
 };
 
 export default StatTable;

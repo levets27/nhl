@@ -1,61 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import StatTable from "./statTable";
 
-class StatTableContainer extends React.Component {
-  state = {
-    id: null,
-    roster: [],
-    playerData: [],
-    sortKey: ""
-  };
+const StatTableContainer = ({
+  apiQuery,
+  isGoalie,
+  name,
+  sortKey,
+  statCategories,
+  teamId
+}) => {
+  const [currentSortKey, setCurrentSortKey] = useState(sortKey);
+  const [currentTeamId, setCrrentTeamId] = useState(null);
+  const [roster, setRoster] = useState([]);
+  const [playerData, setPlayerData] = useState([]);
 
-  componentDidMount() {
-    this.updateId();
-    if (this.state.sortKey !== this.props.sortKey) {
-      this.setState({ sortKey: this.props.sortKey });
+  useEffect(() => {
+    if (roster.length === 0 || teamId !== currentTeamId) {
+      fetchData();
     }
-    if (this.state.roster.length === 0) {
-      this.fetchData();
+    if (teamId !== currentTeamId) {
+      setCrrentTeamId(teamId);
     }
-  }
+  });
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.id !== prevState.id && this.props.id !== prevProps.id) {
-      this.updateId();
-      this.fetchData();
-    }
-  }
-
-  updateId = (id = this.props.id) => {
-    this.setState({ id: id });
-  };
-
-  fetchData = () => {
-    fetch(this.props.apiQuery)
+  const fetchData = () => {
+    fetch(apiQuery)
       .then(results => {
         return results.json();
       })
       .then(data => {
         if (data.teams) {
-          let roster = data.teams[0].franchise.roster.roster;
-          let playerData = this.formatData(
-            roster,
-            this.props.isGoalie,
-            this.props.statCategories
-          );
-          this.setState({
-            roster: roster,
-            playerData: playerData
-          });
+          let newRoster = data.teams[0].franchise.roster.roster;
+          let newPlayerData = formatData(newRoster, isGoalie, statCategories);
+          setRoster(newRoster);
+          setPlayerData(newPlayerData);
         }
       });
   };
 
-  formatData = data => {
+  const formatData = data => {
     let filteredData = data
       .filter(player => {
-        if (this.props.isGoalie) {
+        if (isGoalie) {
           return (
             player.position.abbreviation === "G" &&
             player.person.stats[0].splits[0]
@@ -77,33 +64,33 @@ class StatTableContainer extends React.Component {
           jerseyNumber: Number(jerseyNumber),
           position: position.abbreviation
         };
-        Object.keys(this.props.statCategories).forEach(stat => {
+        Object.keys(statCategories).forEach(stat => {
           data[stat] = stats[stat];
         });
         return data;
       });
-    return this.sortData(this.state.sortKey, filteredData);
+    return sortData(currentSortKey, filteredData);
   };
 
-  sortStateData = e => {
-    let sortKey = e.currentTarget.dataset.title;
-    let sortedData = this.handleSort(sortKey);
+  const sortStateData = e => {
+    let sortKey = e.target.dataset.title;
+    let sortedData = handleSort(sortKey);
     if (sortedData) {
-      this.setState({ playerData: sortedData });
+      setPlayerData(sortedData);
     }
   };
 
-  handleSort = sortKey => {
-    let data = this.state.playerData;
-    if (sortKey === this.state.sortKey) {
-      return data.reverse();
+  const handleSort = sortKey => {
+    let data = playerData;
+    if (sortKey === currentSortKey) {
+      return [...data].reverse();
     } else {
-      this.setState({ sortKey: sortKey });
-      this.sortData(sortKey);
+      setCurrentSortKey(sortKey);
+      return sortData(sortKey);
     }
   };
 
-  sortData = (sortKey, data = this.state.playerData) => {
+  const sortData = (sortKey, data = playerData) => {
     return data.sort((a, b) => {
       if (a[sortKey] > b[sortKey]) return -1;
       if (a[sortKey] < b[sortKey]) return 1;
@@ -111,31 +98,28 @@ class StatTableContainer extends React.Component {
     });
   };
 
-  render() {
-    const { playerData } = this.state;
-    const { name, statCategories } = this.props;
-    return (
-      <StatTable
-        playerData={playerData}
-        name={name}
-        statCategories={statCategories}
-        handleHeaderClick={this.sortStateData}
-      />
-    );
-  }
-}
+  return (
+    <StatTable
+      playerData={playerData}
+      id={name}
+      statCategories={statCategories}
+      handleHeaderClick={sortStateData}
+    />
+  );
+};
 
 StatTableContainer.propTypes = {
-  sortKey: PropTypes.string,
   apiQuery: PropTypes.string.isRequired,
   isGoalie: PropTypes.bool,
   name: PropTypes.string.isRequired,
-  statCategories: PropTypes.object.isRequired
+  sortKey: PropTypes.string,
+  statCategories: PropTypes.object.isRequired,
+  teamId: PropTypes.number.isRequired
 };
 
 StatTableContainer.defaultProps = {
-  sortKey: "points",
-  isGoalie: false
+  isGoalie: false,
+  sortKey: "points"
 };
 
 export default StatTableContainer;

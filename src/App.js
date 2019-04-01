@@ -4,7 +4,7 @@ import { TeamsProvider } from "./context/teamsContext";
 import NavBar from "./layout/navBar";
 import TeamPage from "./components/teamPage";
 
-function App() {
+const App = () => {
   let basePath = "";
   if (process.env.NODE_ENV === "production") {
     basePath = "/nhl";
@@ -20,7 +20,7 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 function Schedule() {
   return (

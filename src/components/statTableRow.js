@@ -1,8 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 // import placeholder from "../images/person-placeholder-sm.png";
 
-const StatTableRow = props => {
-  const { player } = props;
+const StatTableRow = ({ player }) => {
   return (
     <tr>
       {Object.entries(player).map((playerData, i) => {
@@ -22,8 +22,8 @@ const StatTableRow = props => {
   );
 };
 
-StatTableRow.defaultProps = {
-  player: {}
+StatTableRow.propTypes = {
+  player: PropTypes.object.isRequired
 };
 
 export default StatTableRow;
