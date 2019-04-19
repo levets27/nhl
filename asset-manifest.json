@@ -1,13 +1,13 @@
 {
   "main.css": "/nhl/static/css/main.27539486.chunk.css",
-  "main.js": "/nhl/static/js/main.1f8f22c3.chunk.js",
-  "main.js.map": "/nhl/static/js/main.1f8f22c3.chunk.js.map",
+  "main.js": "/nhl/static/js/main.4048ce07.chunk.js",
+  "main.js.map": "/nhl/static/js/main.4048ce07.chunk.js.map",
   "runtime~main.js": "/nhl/static/js/runtime~main.1a4d0025.js",
   "runtime~main.js.map": "/nhl/static/js/runtime~main.1a4d0025.js.map",
-  "static/js/2.8b6876ca.chunk.js": "/nhl/static/js/2.8b6876ca.chunk.js",
-  "static/js/2.8b6876ca.chunk.js.map": "/nhl/static/js/2.8b6876ca.chunk.js.map",
+  "static/js/2.c8ba1214.chunk.js": "/nhl/static/js/2.c8ba1214.chunk.js",
+  "static/js/2.c8ba1214.chunk.js.map": "/nhl/static/js/2.c8ba1214.chunk.js.map",
   "index.html": "/nhl/index.html",
-  "precache-manifest.26562d6f4c26f67089c2ce333403594e.js": "/nhl/precache-manifest.26562d6f4c26f67089c2ce333403594e.js",
+  "precache-manifest.3cc4296e2b2f9295c7d7f39d00e3a675.js": "/nhl/precache-manifest.3cc4296e2b2f9295c7d7f39d00e3a675.js",
   "service-worker.js": "/nhl/service-worker.js",
   "static/css/main.27539486.chunk.css.map": "/nhl/static/css/main.27539486.chunk.css.map"
 }
