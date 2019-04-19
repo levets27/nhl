@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { TeamsContext } from "../context/teamsContext";
+import Title from "./title";
 import StatTableContainer from "./statTableContainer";
 
 const TeamPage = ({ match }) => {
@@ -21,7 +22,7 @@ const TeamPage = ({ match }) => {
     if (teams.length > 0) {
       if (currentTeam && currentTeam.abbreviation !== abbr) {
         let newTeam = teams.find(({ abbreviation }) => abbreviation === abbr);
-        if (currentTeam !== newTeam) {
+        if (newTeam && currentTeam !== newTeam) {
           setCurrentTeam(newTeam);
           setCurrentTeamId(newTeam.id);
         }
@@ -48,8 +49,8 @@ const TeamPage = ({ match }) => {
   return (
     <section>
       {currentTeamId && (
-        <React.Fragment>
-          <h1>
+        <>
+          <Title level={1} centered>
             <img
               src={`https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/${currentTeamId}.svg`}
               width="60"
@@ -57,9 +58,9 @@ const TeamPage = ({ match }) => {
               alt=""
             />
             {currentTeam.name}
-          </h1>
+          </Title>
           <section>
-            <h2>Skater Stats</h2>
+            <Title level={2}>Skater Stats</Title>
             <StatTableContainer
               teamId={currentTeamId}
               name={`teamSkaterStats-${abbr}`}
@@ -69,7 +70,7 @@ const TeamPage = ({ match }) => {
             />
           </section>
           <section>
-            <h2>Goalie Stats</h2>
+            <Title level={2}>Goalie Stats</Title>
             <StatTableContainer
               teamId={currentTeamId}
               name={`teamGoalieStats-${abbr}`}
@@ -79,7 +80,7 @@ const TeamPage = ({ match }) => {
               statCategories={goalieStatCategories}
             />
           </section>
-        </React.Fragment>
+        </>
       )}
     </section>
   );

@@ -1,40 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-export const TeamsContext = React.createContext();
+const TeamsContext = React.createContext();
 
-class TeamsProvider extends React.Component {
-  state = {
-    teams: []
+const TeamsProvider = props => {
+  let [teams, setTeams] = useState([]);
+
+  const conferences = {
+    Eastern: ["Atlantic", "Metropolitan"],
+    Western: ["Central", "Pacific"]
   };
-  componentDidMount() {
+
+  useEffect(() => {
+    if (teams.length === 0) {
+      getSortedTeams();
+    }
+  });
+
+  const getSortedTeams = () => {
     fetch(`https://statsapi.web.nhl.com/api/v1/teams`)
       .then(results => {
         return results.json();
       })
-      .then(data => {
-        let teams = data.teams.sort(function(a, b) {
-          let nameA = a.name.toUpperCase();
-          let nameB = b.name.toUpperCase();
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-          return 0;
-        });
-        this.setState({ teams: teams });
+      .then(allTeams => {
+        let sortedTeams = sortTeams(allTeams.teams);
+        setTeams(sortedTeams);
       });
-  }
-  render() {
-    return (
-      <TeamsContext.Provider value={{ teams: this.state.teams }}>
-        {this.props.children}
-      </TeamsContext.Provider>
-    );
-  }
-}
+  };
+
+  const sortTeams = (teamsArray, sortBy = "name") => {
+    let teamList = teamsArray.sort((a, b) => {
+      if (a[sortBy].toLowerCase() < b[sortBy].toLowerCase()) {
+        return -1;
+      }
+      if (a[sortBy].toLowerCase() > b[sortBy].toLowerCase()) {
+        return 1;
+      }
+      return 0;
+    });
+    return teamList;
+  };
+
+  return (
+    <TeamsContext.Provider value={{ teams: teams, conferences: conferences }}>
+      {props.children}
+    </TeamsContext.Provider>
+  );
+};
 
 const TeamsConsumer = TeamsContext.Consumer;
 
-export { TeamsProvider, TeamsConsumer };
+export { TeamsContext, TeamsProvider, TeamsConsumer };

@@ -1,0 +1,188 @@
+{
+  "ANA": {
+    "primary": "#f47a38",
+    "secondary": "#b09862",
+    "light": "#f47a38",
+    "dark": "#010101"
+  },
+  "ARI": {
+    "primary": "#8c2633",
+    "secondary": "#e2d6b5",
+    "light": "#e2d6b5",
+    "dark": "#8c2633"
+  },
+  "BOS": {
+    "primary": "#ffb81c",
+    "secondary": "#000",
+    "light": "#ffb81c",
+    "dark": "#000"
+  },
+  "BUF": {
+    "primary": "#002654",
+    "secondary": "#fcb514",
+    "light": "#fcb514",
+    "dark": "#002654"
+  },
+  "CGY": {
+    "primary": "#ce1126",
+    "secondary": "#f3bc52",
+    "light": "#ce1126",
+    "dark": "#111"
+  },
+  "CAR": {
+    "primary": "#c00",
+    "secondary": "#000",
+    "light": "#c00",
+    "dark": "#000"
+  },
+  "CHI": {
+    "primary": "#cf0a2c",
+    "secondary": "#ffd100",
+    "light": "#fff",
+    "dark": "#000"
+  },
+  "COL": {
+    "primary": "#6f263d",
+    "secondary": "#236192",
+    "light": "#a2aaad",
+    "dark": "#6f263d"
+  },
+  "CBJ": {
+    "primary": "#002654",
+    "secondary": "#ce1126",
+    "light": "#a4a9ad",
+    "dark": "#002654"
+  },
+  "DAL": {
+    "primary": "#006847",
+    "secondary": "#8f8f8c",
+    "light": "#8f8f8c",
+    "dark": "#111"
+  },
+  "DET": {
+    "primary": "#ce1126",
+    "secondary": "#fff",
+    "light": "#fff",
+    "dark": "#ce1126"
+  },
+  "EDM": {
+    "primary": "#041e42",
+    "secondary": "#ff4c00",
+    "light": "#ff4c00",
+    "dark": "#041e42"
+  },
+  "FLA": {
+    "primary": "#041e42",
+    "secondary": "#c8102e",
+    "light": "#b9975b",
+    "dark": "#041e42"
+  },
+  "LAK": {
+    "primary": "#111",
+    "secondary": "#a2aaad",
+    "light": "#fff",
+    "dark": "#111"
+  },
+  "MIN": {
+    "primary": "#154734",
+    "secondary": "#a6192e",
+    "light": "#ddcba4",
+    "dark": "#154734"
+  },
+  "MTL": {
+    "primary": "#af1e2d",
+    "secondary": "#192168",
+    "light": "#fff",
+    "dark": "#af1e2d"
+  },
+  "NSH": {
+    "primary": "#ffb81c",
+    "secondary": "#041e42",
+    "light": "#fff",
+    "dark": "#041e42"
+  },
+  "NJD": {
+    "primary": "#ce1126",
+    "secondary": "#000",
+    "light": "#fff",
+    "dark": "#ce1126"
+  },
+  "NYI": {
+    "primary": "#00539b",
+    "secondary": "#f47d30",
+    "light": "#fff",
+    "dark": "#00539b"
+  },
+  "NYR": {
+    "primary": "#0038a8",
+    "secondary": "#ce1126",
+    "light": "#fff",
+    "dark": "#0038a8"
+  },
+  "OTT": {
+    "primary": "#e31837",
+    "secondary": "#000",
+    "light": "#fff",
+    "dark": "#e31837"
+  },
+  "PHI": {
+    "primary": "#f74902",
+    "secondary": "#000",
+    "light": "#fff",
+    "dark": "#f74902"
+  },
+  "PIT": {
+    "primary": "#000",
+    "secondary": "#fcb514",
+    "light": "#cfc493",
+    "dark": "#000"
+  },
+  "SJS": {
+    "primary": "#002f87",
+    "secondary": "#fcb514",
+    "light": "#fff",
+    "dark": "#041e42"
+  },
+  "STL": {
+    "primary": "#006d75",
+    "secondary": "#ea7200",
+    "light": "#fff",
+    "dark": "#006d75"
+  },
+  "TBL": {
+    "primary": "#002868",
+    "secondary": "#fff",
+    "light": "#fff",
+    "dark": "#002868"
+  },
+  "TOR": {
+    "primary": "#003e7e",
+    "secondary": "#fff",
+    "light": "#fff",
+    "dark": "#003e7e"
+  },
+  "VAN": {
+    "primary": "#001f5b",
+    "secondary": "#00843d",
+    "light": "#fff",
+    "dark": "#071c2c"
+  },
+  "VGK": {
+    "primary": "#b4975a",
+    "secondary": "#333f42",
+    "light": "#fff",
+    "dark": "#333f42"
+  },
+  "WSH": {
+    "primary": "#041e42",
+    "secondary": "#c8102e",
+    "light": "#fff",
+    "dark": "#041e42"
+  },
+  "WPG": {
+    "primary": "#041e42",
+    "secondary": "#004c97",
+    "light": "#fff",
+    "dark": "#041e42"
+  }
+}

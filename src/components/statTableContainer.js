@@ -100,10 +100,10 @@ const StatTableContainer = ({
 
   return (
     <StatTable
-      playerData={playerData}
-      id={name}
-      statCategories={statCategories}
       handleHeaderClick={sortStateData}
+      name={name}
+      playerData={playerData}
+      statCategories={statCategories}
     />
   );
 };

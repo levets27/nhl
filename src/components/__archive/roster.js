@@ -100,13 +100,13 @@ class Roster extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <SkaterTable
           skaterData={this.state.skaterData}
           sortFn={this.sortStateData}
         />
         <GoalieStats goalieData={this.state.goalieData} />
-      </React.Fragment>
+      </>
     );
   }
 }

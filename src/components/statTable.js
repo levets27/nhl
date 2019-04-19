@@ -1,18 +1,27 @@
 import React from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 import StatTableRow from "./statTableRow";
 
-const StatTable = ({ handleHeaderClick, id, playerData, statCategories }) => {
+const StatTable = ({ handleHeaderClick, name, playerData, statCategories }) => {
+  const Table = styled.table`
+    border-collapse: collapse;
+    thead {
+      background-color: rgb(35, 65, 114);
+      color: white;
+    }
+    th {
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+  `;
+  const TableHeader = styled.thead``;
   return (
-    <table id={id}>
-      <thead>
+    <Table id={name}>
+      <TableHeader>
         <tr>
-          <th />
-          <th data-title="firstName" onClick={handleHeaderClick}>
-            First
-          </th>
-          <th data-title="lastName" onClick={handleHeaderClick}>
-            Last
+          <th colSpan="3" data-title="lastName" onClick={handleHeaderClick}>
+            Name
           </th>
           <th data-title="jerseyNumber" onClick={handleHeaderClick}>
             No.
@@ -26,19 +35,19 @@ const StatTable = ({ handleHeaderClick, id, playerData, statCategories }) => {
             </th>
           ))}
         </tr>
-      </thead>
+      </TableHeader>
       <tbody>
         {playerData.map((player, i) => {
           return <StatTableRow player={player} key={i} />;
         })}
       </tbody>
-    </table>
+    </Table>
   );
 };
 
 StatTable.propTypes = {
   handleHeaderClick: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   playerData: PropTypes.array.isRequired,
   statCategories: PropTypes.object.isRequired
 };

@@ -20,13 +20,9 @@ export const imageExists = imagePath => {
   var image = new Image();
   image.src = imagePath;
 
-  /*  if (!image.complete) {
-    console.log("!image.complete");
+  if (!image.complete) {
     return false;
-  } else  */ if (
-    image.height === 0
-  ) {
-    console.log("image.height === 0");
+  } else if (image.height === 0) {
     return false;
   }
 
